@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+__MACOSX/
+
+# Office lock files (created while a .docx is open)
+~$*
+
+# Jupyter / Python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Data: zip duplicates the CSVs already in data/
+data/Archive.zip
+
+# Lecturer's practical notebooks (course material, kept local only)
+DA-practical notes/
