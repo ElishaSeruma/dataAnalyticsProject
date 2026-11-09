@@ -13,8 +13,8 @@ __pycache__/
 venv/
 .env
 
-# Data: zip duplicates the CSVs already in data/
+# Data: zip duplicates the CSVs already in data
 data/Archive.zip
 
-# Lecturer's practical notebooks (course material, kept local only)
+# Lecturer's practical notebooks 
 DA-practical notes/
