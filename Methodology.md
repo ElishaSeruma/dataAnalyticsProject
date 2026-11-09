@@ -6,4 +6,9 @@ Since we are not evaluating medical, cognitive, playbook testing approcahes done
 >The datasets i currently have are NFL_Combine_Since_2000.csv which contains the dta of the players drafted by team and the player's position, and their combaine stats. weekly_player_stats_offense.csv(Although this dataset has the required data for the required player groups the data does need cleaning before work begins. Cleaning out non-relevant player positions and dealling with empty rows/collumns)
 
 #*Method to use*
->
+- Collect initial data 
+>I will be using NFL_Combine_Since_2000.csv & yearly_player_stats_offense.csv 
+> i will leave out team related data becuase it skews the perspective becasue its statistics are joined accross all player groups becasue for example multiple position groups could contribute 
+- Describe the data
+- Verify the data quality
+- Explore the data
