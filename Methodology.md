@@ -27,5 +27,12 @@ Since we are not evaluating medical, cognitive, playbook testing approcahes done
 >I add rushing yards and receiving yards to get scrimmage yards. I also add rushing and receiving touchdowns. I group by player ID and add up their production over the 5 seasons, including stats from different teams if the player changed teams.
 
 - Match the two files
->For drafted players i match on full name, draft year and overall pick. For undrafted players i match on full name and school, and compare combine year with NFL rookie year. These are exact matches so differences in names, schools or years can stop a match.
->I keep the combine records even if i cannot match them to the NFL file. If the match is unclear or missing, i leave the production blank instead of calling it zero. The matching code has not been run yet so i do not have a match count.
+>I added an exact match based on Lab 02. For drafted players the current key uses full name, draft year and overall pick. For undrafted players it uses full name and school and requires the Combine year to equal the NFL rookie season as part of the key. I keep the Combine records with a left join and leave NFL production blank when a match is missing or unclear. I have not run the matching code yet, so I do not have a match count.
+
+- Feedback from Andrew
+>Andrew agreed with using an exact key for drafted players and keeping unmatched records separate from players with zero NFL production. For undrafted players, he suggested standardising names and schools, matching on those fields first, and using Combine year and rookie season to check the match. He recommended reviewing unclear cases by hand rather than automatically using fuzzy matching.
+
+- Approach I will take
+>I will keep the drafted key. For undrafted players I will make the name and school formats consistent across the two files by standardising capitalisation, punctuation and spacing, and recording any school aliases I verify. I will look for an exact name and school match first. If there is one candidate and the years agree, I will accept it automatically. If the years disagree or there is more than one candidate, I will flag the record for manual review.
+>I may use a roster or player reference to confirm an identity and record the source and what it confirmed. The yearly NFL file will still be the source for production. If I cannot confirm the identity, I will leave the production blank.
+>I will report how many records matched automatically, how many were reviewed manually, how many were confirmed through review, and how many stayed unmatched. I will also record the matching assumptions and the name and school rules I used.
