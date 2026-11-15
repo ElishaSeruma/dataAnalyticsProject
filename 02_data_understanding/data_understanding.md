@@ -38,3 +38,11 @@ For example, **77** Combine records were marked DNP for the 40-yard dash: 16 run
 ### *Can the two files be linked?*
 
 The yearly NFL file has a player ID, but the Combine file does not share it. Names, schools, years, and draft details give me a way to compare records. The counts above do not show how many players match, and an unmatched Combine record does not mean the player had zero NFL production.
+
+### *What changed in the latest Colab run?*
+
+The latest run loaded **6,303 yearly NFL rows**, compared with **10,856** in the earlier run. The filename and loading code stayed the same, so I do not yet know why the row count changed. After filtering, the latest run had **2,072 NFL rows**: 687 for RBs, 888 for WRs and 497 for TEs. The Combine count stayed at **985**. The earlier table above is kept for comparison. I need to verify which copy of the yearly CSV Colab loaded before treating the match rate as final.
+
+There were no blank values in the four production columns in the filtered NFL rows. The median was **0 rushing yards** and **125 receiving yards**, while the averages were about **118** and **251**. Both touchdown columns had a median of zero. The higher averages show that some rows had much larger production than most others. These figures describe yearly rows before adding up each player's five seasons.
+
+DNP rates varied by drill: **77 (7.8%)** for the 40-yard dash, **359 (36.4%)** for the three-cone drill and **333 (33.8%)** for the 20-yard shuttle, out of 985 records. The number of usable scores will differ by drill even before the NFL records are linked.
