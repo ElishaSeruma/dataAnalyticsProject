@@ -15,3 +15,24 @@ For drafted players, I can use draft year and overall pick to find an official t
 For undrafted players, I would use the [nflverse roster records](https://nflreadr.nflverse.com/articles/dictionary_rosters.html) and official team profiles or signing announcements where available. Roster fields such as name, college, season, team and player ID can help confirm a candidate. Finding a roster record does not prove a player recorded NFL production, and not finding one does not prove zero production.
 
 The reference would confirm identities only. I would keep the yearly NFL CSV as the source for yards and touchdowns, record the source and reason for each manual decision, and leave production missing if the link or outcome cannot be verified.
+
+### *What did the nflverse ID match find?*
+
+The second saved run (commit `57cc8f9`) used the full **10,856-row** yearly file and kept **3,574** yearly rows after filtering. The earlier direct match used **6,303** yearly rows and kept **2,072**. Both runs kept the same 985 Combine records.
+
+| Result | Direct match, smaller yearly input | nflverse ID match, full yearly input |
+|---|---:|---:|
+| Confirmed with qualifying production | 357 | 651 |
+| Confirmed without qualifying production | 1 | 169 |
+| Identity unresolved | 627 | 165 |
+| **Total** | **985** | **985** |
+
+In the nflverse run, **86** records had no PFR ID found, **70** had no unique registry ID, and **9** need a rookie-year check. Qualifying production was available for **524 of 575 drafted players (91.1%)** and **127 of 410 undrafted players (31.0%)**. The analysis sample will therefore represent drafted prospects more fully.
+
+### *Which method did I select?*
+
+After further feedback from Andrew, I selected the **nflverse PFR-to-GSIS ID method** because it gave the highest usable yield in the completed runs and there is limited time to investigate both methods further. The direct matching code stays commented out in the notebook. The planned same-input comparison has not been run.
+
+The registry method produced **651** confirmed records with qualifying production, compared with **357** in the direct run. The yearly inputs differed, so this is a practical choice based on observed coverage, not proof of higher matching accuracy. The selected method checks unique IDs, agreement with the yearly file where available, and undrafted rookie years. No manual review has been completed.
+
+The linked table retains all 985 prospects. Production comparisons use confirmed identities with qualifying production; the other 334 prospects remain documented as missing outcomes or unresolved identities. Each drill analysis will have a smaller sample where scores are DNP. The difference in coverage between drafted and undrafted players remains a limitation.

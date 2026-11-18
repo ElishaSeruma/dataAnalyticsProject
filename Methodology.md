@@ -37,8 +37,22 @@ Since we are not evaluating medical, cognitive, playbook testing approcahes done
 >I may use a roster or player reference to confirm an identity and record the source and what it confirmed. The yearly NFL file will still be the source for production. If I cannot confirm the identity, I will leave the production blank.
 >I will report how many records matched automatically, how many were reviewed manually, how many were confirmed through review, and how many stayed unmatched. I will also record the matching assumptions and the name and school rules I used.
 
-- Results from the latest Colab run
+- Results from the direct match
 >The revised match ran with 985 Combine records. It found 358 automatic matches and left 627 unmatched. I have not reviewed any records manually. One confirmed identity had no qualifying production, so 357 records had both a confirmed identity and production. The yearly CSV loaded 6,303 rows instead of the 10,856 seen earlier, so I need to confirm the input before treating these counts as final.
 
 - Check player identities with another source
 >I will look at the [nflverse player registry](https://nflreadr.nflverse.com/reference/load_players.html) and use roster records or official team records for cases that need more evidence. I will use these sources to confirm who the player is. The yearly NFL file stays as my source for production. More detail is in [Data Preparation](03_data_preparation/README.md).
+
+- Results from matching with nflverse IDs
+>I used the nflverse Combine reference and player registry to link PFR IDs to NFL GSIS IDs. The run loaded 10,856 yearly NFL rows and kept 3,574 after filtering. It confirmed 820 of 985 Combine identities. Of those, 651 had five-season production and 169 had no qualifying record. Another 165 identities stayed unresolved.
+
+- Decision after further feedback from Andrew
+>Andrew advised using the approach with the highest yield because there is not enough time to investigate both approaches further. I selected the nflverse Combine reference and player registry approach. It links PFR IDs to NFL GSIS IDs, then uses the yearly file for production. The direct approach stays commented out in the notebook as a record of the work.
+
+- How I came to this decision
+>The direct match gave 358 identities and 357 records with production, but it ran on only 6,303 yearly rows. The nflverse method ran on the full 10,856-row yearly file, confirmed 820 identities and gave 651 records with production. This is the largest usable group from the completed runs. Both runs kept 985 Combine prospects, but the inputs were different, so this is not proof that the second method is more accurate.
+>I chose the reference method for its higher observed yield and its checks on unique IDs, agreement with yearly player IDs and undrafted rookie years. I have not completed an independent accuracy check or manual review. This replaces the planned comparison of both methods on the same input; that comparison has not been run.
+
+- Which records I will use
+>I will keep all 985 Combine records in the linked table. The production analysis will use the 651 confirmed identities with qualifying five-season production from the latest saved run. The 169 confirmed identities without qualifying production and the 165 unresolved identities will not be given zero production or included in outcome comparisons. The final count for each drill will also depend on whether a score was recorded.
+>Production is available for 524 of 575 drafted prospects and 127 of 410 undrafted prospects. This means the results represent drafted players more fully. I will keep this limitation in the report rather than describe the sample as all Combine players.
