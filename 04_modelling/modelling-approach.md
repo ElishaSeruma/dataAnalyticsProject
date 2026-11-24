@@ -79,7 +79,7 @@ Cell numbers count from the top, including Markdown cells.
 | Pearson correlation and heatmap | Lab01_intro_to_pandas (1), cells 51 and 57 |
 | Grouped summaries and box plots | Lab02_exploratory_data_analysis (2), cell 105; Analyze Data, cell 27 |
 
-The training-mean baseline adapts the classification baseline principle to a continuous target; it is not the same classifier used in Lab 05. Software versions for Python, pandas, NumPy, scikit-learn and plotting libraries will be recorded when the modelling cells run in Colab. The first linear models have now been run in Colab; their saved results are documented in the Evaluation folder.
+The training-mean baseline adapts the classification baseline principle to a continuous target; it is not the same classifier used in Lab 05. Software versions for Python, pandas, NumPy, scikit-learn and plotting libraries are recorded in the saved Colab modelling output. The first linear models have now been run in Colab; their saved results are documented in the Evaluation folder.
 
 ### *Why add random forest now?*
 

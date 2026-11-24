@@ -75,7 +75,7 @@ Since we are not evaluating medical, cognitive, playbook testing approcahes done
 
 - Evaluation and reproducibility
 >I will report training and test MAE, RMSE and R², alongside coefficients, residual plots and sample sizes. I will calculate RMSE as the square root of MSE, as in Lab 06. I will record software versions and the split seed in Colab.
->The DNP mini-analysis will use descriptive summaries and box plots by position and drill rather than a classifier. More detail and the exact lab references are in [Modelling Approach](04_modelling/modelling-approach.md). These are planned methods; the models have not been run yet.
+>The DNP mini-analysis will use descriptive summaries and box plots by position and drill rather than a classifier. More detail and the exact lab references are in [Modelling Approach](04_modelling/modelling-approach.md). The predictive models have been run; their results are documented below.
 
 - First modelling results
 >The linear models ran in Colab. The RB dash model explained about 2% of test variation in yards and only slightly improved on its mean baseline. The TE six-drill touchdown model had test R² about 0.071. These are examples visible in the saved outputs, not the best models across all results. The full metric tables were truncated, so I added a full display before making a ranking.
@@ -88,3 +88,8 @@ Since we are not evaluating medical, cognitive, playbook testing approcahes done
 - Results from the forest comparison
 >The forest improved test RMSE over the baseline for RB yards and touchdowns, but not for WR or TE outcomes. Training R² was above 0.80 in all six forest fits, while most OOB scores and four of six test R² scores were negative. This suggests overfitting and unstable generalisation in these small samples.
 >I will report each target and metric separately because RMSE and MAE do not always favour the same model. I will retain the baseline and linear models rather than claim the forest is best overall. The next analysis can address drill associations and DNP directly without choosing more model settings from test performance.
+
+- Remaining association and participation analysis
+>I will use per-position Pearson correlations and scatterplots to compare each drill with five-season yards and touchdowns. I will show the sample size for each pair and use players with that drill recorded, rather than require all six scores. This follows the correlation and plotting work in Lab 01 and Lab 02.
+>For the DNP mini-analysis I will compare recorded-score and explicit DNP groups by position and drill. I will report counts, means, medians and box plots, using the grouped summaries and plotting work from class. I will describe draft status separately and compare overall picks only among drafted players.
+>These are descriptive analyses of the available sample, not new prediction models. They will not be used to tune models after seeing test results. I will explain missing outcomes, unequal coverage and the fact that DNP does not tell me why a player skipped a drill. The descriptive cells are now implemented but have not been run in Colab. The details and lab references are in [Remaining Analysis](05_evaluation/next-analysis.md).
