@@ -83,4 +83,8 @@ Since we are not evaluating medical, cognitive, playbook testing approcahes done
 
 - Add a nonlinear alternative
 >I added random forest regression using the class configuration from Lab 06, cell 61: 40 trees, bootstrap sampling, OOB scoring and seed 42. It uses the same complete-case players and splits as the linear comparison. I will compare MAE, RMSE and R² and check the gap between training and test performance.
->I am testing whether a nonlinear model adds useful information, not assuming it will be better. The comparison is exploratory because I have already seen test scores. I will not tune the forest on test performance. The new forest and full-results cells have not been run yet, and all existing notebook work is kept.
+>I am testing whether a nonlinear model adds useful information, not assuming it will be better. The comparison is exploratory because I have already seen test scores. I will not tune the forest on test performance. The forest and full-results cells have now been run in Colab, and all existing notebook work is kept.
+
+- Results from the forest comparison
+>The forest improved test RMSE over the baseline for RB yards and touchdowns, but not for WR or TE outcomes. Training R² was above 0.80 in all six forest fits, while most OOB scores and four of six test R² scores were negative. This suggests overfitting and unstable generalisation in these small samples.
+>I will report each target and metric separately because RMSE and MAE do not always favour the same model. I will retain the baseline and linear models rather than claim the forest is best overall. The next analysis can address drill associations and DNP directly without choosing more model settings from test performance.
