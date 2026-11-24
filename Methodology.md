@@ -56,3 +56,23 @@ Since we are not evaluating medical, cognitive, playbook testing approcahes done
 - Which records I will use
 >I will keep all 985 Combine records in the linked table. The production analysis will use the 651 confirmed identities with qualifying five-season production from the latest saved run. The 169 confirmed identities without qualifying production and the 165 unresolved identities will not be given zero production or included in outcome comparisons. The final count for each drill will also depend on whether a score was recorded.
 >Production is available for 524 of 575 drafted prospects and 127 of 410 undrafted prospects. This means the results represent drafted players more fully. I will keep this limitation in the report rather than describe the sample as all Combine players.
+
+- Final preparation checks
+>The saved Colab results showed no repeated player-team-season-type keys before aggregation and no repeated player IDs in the 651-player sample. The production totals agreed exactly before and after grouping. The final IDs and production totals had no missing values. All missing numeric drill scores were explained by DNP, with no other missing numeric scores.
+>I kept the original drill fields and made separate numeric scores and Boolean DNP flags. I did not replace DNP with zero or an average. The unusual-value check found no non-positive drill scores. Negative net yards and large performances were displayed for review, not automatically removed. I have not independently verified every identity or unusual source value.
+>The retained sample had faster average dash times than the excluded sample in all three positions. I will explain this selection limitation and the lower coverage of undrafted players in the report. The preparation log is in the notebook and the Data Preparation folder.
+
+#*Modelling*
+- Task and targets
+>I will use regression to examine whether Combine drill scores help predict five-season production. I will model scrimmage yards and offensive touchdowns separately for RB's, WR's & TE's. Names and IDs are not features.
+
+- Train and test split
+>I will use an 80/20 player split within each position with random_state=42, following Lab 04. The same player stays in training or test across models and targets. I will fit models and calculate baseline means on training data only. If I tune settings or compare feature combinations to choose a model, I will use a validation split within training and keep test data for the final evaluation.
+
+- Baseline and models
+>My baseline will predict the training group's mean production. The main model is simple linear regression with one drill score. The alternative is multiple linear regression with several drills, if enough complete records remain. I will compare the baseline and both models on the same players and split. Larger single-drill samples will be reported separately so differences in the players are not mistaken for differences between models.
+>I will check complete-case training counts before fixing the multiple-regression specification. I will not choose features using test performance. No scaling or position encoding is needed for the initial models, and DNP scores will not be imputed.
+
+- Evaluation and reproducibility
+>I will report training and test MAE, RMSE and R², alongside coefficients, residual plots and sample sizes. I will calculate RMSE as the square root of MSE, as in Lab 06. I will record software versions and the split seed in Colab.
+>The DNP mini-analysis will use descriptive summaries and box plots by position and drill rather than a classifier. More detail and the exact lab references are in [Modelling Approach](04_modelling/modelling-approach.md). These are planned methods; the models have not been run yet.
