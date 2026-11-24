@@ -41,7 +41,7 @@ I will compare simple regression with **multiple linear regression** using sever
 
 For a fair comparison, the baseline, single-drill models and multiple regression will be fitted and evaluated on the **same complete-case players and the same split** in the comparison table. Separate single-drill analyses can use their larger available samples, but their scores will not be treated as directly comparable model rankings across different samples.
 
-Random forest remains a possible later extension, not part of the initial agreed implementation. Classification and clustering are not needed to answer the current question.
+Random forest was initially optional and is now included as the fixed nonlinear alternative described below. Classification and clustering are not needed to answer the current question.
 
 ### *What settings and preparation are needed?*
 
@@ -79,4 +79,14 @@ Cell numbers count from the top, including Markdown cells.
 | Pearson correlation and heatmap | Lab01_intro_to_pandas (1), cells 51 and 57 |
 | Grouped summaries and box plots | Lab02_exploratory_data_analysis (2), cell 105; Analyze Data, cell 27 |
 
-The training-mean baseline adapts the classification baseline principle to a continuous target; it is not the same classifier used in Lab 05. Software versions for Python, pandas, NumPy, scikit-learn and plotting libraries will be recorded when the modelling cells run in Colab. No modelling results have been produced yet.
+The training-mean baseline adapts the classification baseline principle to a continuous target; it is not the same classifier used in Lab 05. Software versions for Python, pandas, NumPy, scikit-learn and plotting libraries will be recorded when the modelling cells run in Colab. The first linear models have now been run in Colab; their saved results are documented in the Evaluation folder.
+
+### *Why add random forest now?*
+
+The visible held-out linear results show modest explanatory performance in some examples: RB dash regression has test R² about 0.020 for yards, and the TE six-drill model has test R² about 0.071 for touchdowns. The saved metric tables are truncated, so these examples do not establish the strongest or weakest model across the full set.
+
+Random forest can represent nonlinear patterns and interactions between drills without specifying them in a linear equation. I will test the Lab 06, cell 61 configuration: 40 trees, bootstrap sampling, out-of-bag scoring and seed 42. Forty trees reproduce the class specification and provide a fixed starting comparison; the choice is not claimed to be optimal. Other parameters use the class estimator defaults, with unrestricted tree growth posing an overfitting risk in these small samples.
+
+I will use the same complete-case training and test players as the six-drill regression, with the same targets and training-mean baseline. OOB R² provides an additional training-side check. Train/test MAE, RMSE and R² remain the main reported metrics. The models use the existing helper with square-root RMSE from Lab 06, cell 27.
+
+The comparison is exploratory because test results were viewed before proposing this alternative. No forest settings will be selected using test scores. Any later tuning needs validation within training. The existing linear models remain in the notebook because they are simpler to interpret and provide a useful reference. The forest has not been run yet.

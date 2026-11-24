@@ -76,3 +76,11 @@ Since we are not evaluating medical, cognitive, playbook testing approcahes done
 - Evaluation and reproducibility
 >I will report training and test MAE, RMSE and R², alongside coefficients, residual plots and sample sizes. I will calculate RMSE as the square root of MSE, as in Lab 06. I will record software versions and the split seed in Colab.
 >The DNP mini-analysis will use descriptive summaries and box plots by position and drill rather than a classifier. More detail and the exact lab references are in [Modelling Approach](04_modelling/modelling-approach.md). These are planned methods; the models have not been run yet.
+
+- First modelling results
+>The linear models ran in Colab. The RB dash model explained about 2% of test variation in yards and only slightly improved on its mean baseline. The TE six-drill touchdown model had test R² about 0.071. These are examples visible in the saved outputs, not the best models across all results. The full metric tables were truncated, so I added a full display before making a ranking.
+>The six-drill test samples had 18 RBs, 32 WRs and 11 TEs. Small test groups can make results unstable. Details are in [Initial Modelling Results](05_evaluation/modelling-results.md).
+
+- Add a nonlinear alternative
+>I added random forest regression using the class configuration from Lab 06, cell 61: 40 trees, bootstrap sampling, OOB scoring and seed 42. It uses the same complete-case players and splits as the linear comparison. I will compare MAE, RMSE and R² and check the gap between training and test performance.
+>I am testing whether a nonlinear model adds useful information, not assuming it will be better. The comparison is exploratory because I have already seen test scores. I will not tune the forest on test performance. The new forest and full-results cells have not been run yet, and all existing notebook work is kept.
